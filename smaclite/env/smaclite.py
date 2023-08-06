@@ -156,8 +156,12 @@ class SMACliteEnv(gym.Env):
                   for enemy in self.enemies.values())
         self.__enemy_attack()
         obs = self.__get_obs()
+        #print(obs[0].shape)
+        #exit()
+        dat = self.__get_info()
         if return_info:
             return obs, self.__get_info()
+        
         return obs
 
     def step(self, actions):
@@ -171,7 +175,7 @@ class SMACliteEnv(gym.Env):
                 assert actions[i] == 0
                 continue
             agent = self.agents[i]
-            if not avail_actions[i][action]:
+            if (not avail_actions[i][action]) and (action != 0):
                 raise ValueError(f"Invalid action for agent {i}: {action}")
             agent.command = self.__get_command(agent, action)
         reward = sum(self.__world_step() for _ in range(STEP_MUL))
@@ -335,6 +339,7 @@ class SMACliteEnv(gym.Env):
         assert unit.hp > 0
         actions = np.zeros(self.n_actions)
         actions[1] = 1
+        #actions[0] = 1
         for direction in Direction:
             actions[2 + direction.value] = self.__can_move(unit, direction)
         if targets is None:

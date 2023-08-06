@@ -179,5 +179,6 @@ class NoopCommand(Command):
         return np.zeros(2)
 
     def execute(self, unit: Unit, **kwargs) -> None:
-        assert unit.hp == 0, f"Unit's hp is not 0: {unit.hp}"
+        #TODO: ADD TOGGLE
+        #assert unit.hp == 0, f"Unit's hp is not 0: {unit.hp}"
         return 0
