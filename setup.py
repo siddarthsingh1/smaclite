@@ -5,7 +5,7 @@ setup(
     version="0.0.1",
     description="SMAClite environment",
     author="Adam Michalski",
-    url="https://github.com/micadam/smaclite",
+    url="https://github.com/siddarthsingh1/smaclite",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
     classifiers=[
         "Intended Audience :: Developers",
