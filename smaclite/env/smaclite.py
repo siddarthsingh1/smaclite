@@ -175,7 +175,8 @@ class SMACliteEnv(gym.Env):
                 actions[i] = 0
             agent = self.agents[i]
             if (not avail_actions[i][action]) and (action != 0):
-                raise ValueError(f"Invalid action for agent {i}: {action}")
+                #raise ValueError(f"Invalid action for agent {i}: {action}")
+                action = 0
             agent.command = self.__get_command(agent, action)
         reward = sum(self.__world_step() for _ in range(STEP_MUL))
         all_enemies_dead = len(self.enemies) == 0
