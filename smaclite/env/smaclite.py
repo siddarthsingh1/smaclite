@@ -156,9 +156,7 @@ class SMACliteEnv(gym.Env):
                   for enemy in self.enemies.values())
         self.__enemy_attack()
         obs = self.__get_obs()
-        #print(obs[0].shape)
-        #exit()
-        dat = self.__get_info()
+
         if return_info:
             return obs, self.__get_info()
         
@@ -172,8 +170,9 @@ class SMACliteEnv(gym.Env):
         avail_actions = self.get_avail_actions()
         for i, action in enumerate(actions):
             if i not in self.agents:
-                assert actions[i] == 0
-                continue
+                #assert actions[i] == 0
+                #continue
+                actions[i] = 0
             agent = self.agents[i]
             if (not avail_actions[i][action]) and (action != 0):
                 raise ValueError(f"Invalid action for agent {i}: {action}")
