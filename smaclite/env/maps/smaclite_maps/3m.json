@@ -22,11 +22,8 @@
     ],
     "attack_point": [9, 16],
     "terrain_preset": "SIMPLE",
-    "num_unit_types": 2,
-    "ally_has_shields": true,
-    "enemy_has_shields": true,
-    "unit_type_ids": {
-        "STALKER": 0,
-        "ZEALOT": 1
-    }
+    "num_unit_types": 0,
+    "ally_has_shields": false,
+    "enemy_has_shields": false,
+
 }
