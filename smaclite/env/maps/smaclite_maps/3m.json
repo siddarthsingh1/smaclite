@@ -24,6 +24,6 @@
     "terrain_preset": "SIMPLE",
     "num_unit_types": 0,
     "ally_has_shields": false,
-    "enemy_has_shields": false,
+    "enemy_has_shields": false
 
 }

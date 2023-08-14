@@ -99,4 +99,4 @@ class MapPreset(Enum):
     MAP_CORRIDOR = get_standard_map("corridor")
     MAP_2S_VS_1SC = get_standard_map("2s_vs_1sc")
     MAP_3S_VS_5Z = get_standard_map("3s_vs_5z")
-    MAP_3M = get_standard_map('3m')
+    MAP_3M = get_standard_map("3m")
