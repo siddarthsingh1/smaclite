@@ -168,16 +168,15 @@ class SMACliteEnv(gym.Env):
             .flatten()
         avail_actions = self.get_avail_actions()
         for i, action in enumerate(actions):
-            #print(self.agents)
             if i not in self.agents:
-                #assert actions[i] == 0
-                #continue
-                actions[i] = 0
+                assert actions[i] == 0
                 continue
+                #actions[i] = 0
+                #continue
             agent = self.agents[i]
             if (not avail_actions[i][action]) and (action != 0):
-                #raise ValueError(f"Invalid action for agent {i}: {action}")
-                action = 0
+                raise ValueError(f"Invalid action for agent {i}: {action}")
+                #action = 0
             agent.command = self.__get_command(agent, action)
         reward = sum(self.__world_step() for _ in range(STEP_MUL))
         all_enemies_dead = len(self.enemies) == 0
@@ -340,7 +339,6 @@ class SMACliteEnv(gym.Env):
         assert unit.hp > 0
         actions = np.zeros(self.n_actions)
         actions[1] = 1
-        #actions[0] = 1
         for direction in Direction:
             actions[2 + direction.value] = self.__can_move(unit, direction)
         if targets is None:
