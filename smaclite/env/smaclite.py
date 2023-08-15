@@ -173,7 +173,8 @@ class SMACliteEnv(gym.Env):
                 continue
             agent = self.agents[i]
             if (not avail_actions[i][action]) and (action != 0):
-                action = 0
+                #use stop action if avail action is illegal
+                action = 1
                 #raise ValueError(f"Invalid action for agent {i}: {action}")
             agent.command = self.__get_command(agent, action)
         reward = sum(self.__world_step() for _ in range(STEP_MUL))
